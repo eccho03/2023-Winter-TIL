@@ -20,3 +20,11 @@
         - virtual DOM
     - state : 컴포넌트의 state가 바뀔 때 마다 re-render된다는 것을 알 수 있었다.
     - props: 컴포넌트에게 값 전달 가능
+
+*** 3주차 내용 정리 ***
+- project1 브랜치에 올리고 있음
+- 사용자 입력처리(handleChangeState 함수, setState)
+- spread: 기본적인 원래값 할당 (코드가 길어지면 일일이 state.(~~) 작성하기 힘듦)
+- option
+- 간단한 css
+      - cursor: pointer; ->  버튼에 커서 올리면 손바닥 나옴

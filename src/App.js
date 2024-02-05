@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react';
 import './App.css';
 import DiaryEditor from './DiaryEditor';
 import DiaryList from './DiaryList';
@@ -34,10 +35,28 @@ const dummyList = [
 ]
 
 function App() {
+
+  const [data, setData] = useState([]);
+
+  const dataId = useRef(0)
+
+  const onCreate = (author, content, emotion) => {
+    const created_date = new Date().getTime();
+    const newItem = {
+      author,
+      content, 
+      emotion,
+      created_date,
+      id : dataId.current,
+    };
+    dataId.current += 1;
+    setData([newItem, ...data]) // 일기를 추가하면 맨앞에 나오게 만들 것이기 때문에 newItem을 제일 앞으로
+  };
+
   return (
     <div className="App">
-      <DiaryEditor/>
-      <DiaryList diaryList={dummyList} />
+      <DiaryEditor onCreate={onCreate} />
+      <DiaryList diaryList={data} />
     </div>
   );
 }
